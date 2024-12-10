@@ -1,0 +1,38 @@
+<h1>Computers</h1>
+
+<%= search_form_for @q do |f| %>
+    <%= f.label :name_cont, "Search by name" %>
+    <%= f.text_field :name_cont %>
+    <%= f.submit "Search" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @computers.each do |computer| %>
+      <tr>
+        <td><%= computer.name %></td>
+        <td><%= computer.brand %></td>
+        <td><%= computer.description %></td>
+        <td><%= number_to_currency(computer.price) %></td>
+        <td>
+          <%= link_to "Show", computer_path(computer) %> |
+          <%= link_to "Edit", edit_computer_path(computer) %> |
+          <%= link_to "Delete", computer_path(computer), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @computers %>
+
+<%= link_to "Add new computer", new_computer_path %>

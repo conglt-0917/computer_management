@@ -48,6 +48,8 @@ gem 'ransack'
 
 gem 'kaminari'
 
+gem 'faker'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

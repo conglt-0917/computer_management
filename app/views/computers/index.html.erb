@@ -24,9 +24,8 @@
         <td><%= computer.description %></td>
         <td><%= number_to_currency(computer.price) %></td>
         <td>
-          <%= link_to "Show", computer_path(computer) %> |
           <%= link_to "Edit", edit_computer_path(computer) %> |
-          <%= link_to "Delete", computer_path(computer), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "delete", computer, data: { "turbo-method": :delete, turbo_confirm: "You sure?" } %>
         </td>
       </tr>
     <% end %>

@@ -8,7 +8,8 @@ class ComputersController < ApplicationController
       @computers = @q.result.page(params[:page]) # Phân trang với Kaminari
     end
 
-    def show; end
+    def show
+    end
 
     def new
       @computer = Computer.new
